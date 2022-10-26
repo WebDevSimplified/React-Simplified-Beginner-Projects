@@ -1,0 +1,30 @@
+body {
+  background: #F3F3F3;
+}
+
+.card {
+  background: white;
+  border: 1px solid #777;
+  border-radius: .5rem;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .15);
+  max-width: 400px;
+  padding: 1.5rem;
+  font-family: Arial;
+}
+
+.name {
+  margin: 0;
+  margin-bottom: 2rem;
+}
+
+
+.body {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem .5rem;
+  padding: 0 1rem;
+}
+
+.label {
+  font-weight: bold;
+}
