@@ -16,7 +16,7 @@ function App() {
 
   // let usersList
   // if (loading) {
-  //   usersList = <h3>Loading...</h3>
+  //   usersList = <h2>Loading...</h2>
   // } else {
   //   usersList = (
   //     <ul>
@@ -31,7 +31,7 @@ function App() {
     <>
       <h1>User List</h1>
       {loading ? (
-        <h1>Loading...</h1>
+        <h2>Loading...</h2>
       ) : (
         <ul>
           {users.map(user => (
