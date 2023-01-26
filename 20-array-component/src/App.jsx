@@ -1,66 +1,81 @@
 import { useState } from "react"
 
-const INITIAL_STATE = ["A", "B", "C"]
+const INITIAL_VALUE = ["A", "B", "C"]
 
 function App() {
-  const [array, setArray] = useState(INITIAL_STATE)
-  const [newValue, setNewValue] = useState("")
+  const [array, setArray] = useState(INITIAL_VALUE)
+  const [value, setValue] = useState("")
 
   function removeFirstElement() {
-    setArray(a => a.slice(1))
+    setArray(currentArray => {
+      return currentArray.slice(1)
+    })
   }
 
-  function removeLetter(letter) {
-    setArray(a => a.filter(element => element !== letter))
+  function removeSpecificLetter(letter) {
+    setArray(currentArray => {
+      return currentArray.filter(element => element !== letter)
+    })
   }
 
-  function AddToStart(letter) {
-    setArray(a => [letter, ...a])
+  function addLetterToStart(letter) {
+    setArray(currentArray => {
+      return [letter, ...currentArray]
+    })
   }
 
-  function AddToEnd(letter) {
-    setArray(a => [...a, letter])
+  function addLetterToEnd(letter) {
+    setArray(currentArray => {
+      return [...currentArray, letter]
+    })
   }
 
-  function addAtIndex(index, letter) {
-    setArray(a => [...a.slice(0, index), letter, ...a.slice(index)])
+  function clear() {
+    setArray([])
+  }
+
+  function reset() {
+    setArray(INITIAL_VALUE)
   }
 
   function updateAToH() {
-    setArray(a =>
-      a.map(element => {
+    setArray(currentArray => {
+      return currentArray.map(element => {
         if (element === "A") return "H"
         return element
       })
-    )
+    })
+  }
+
+  function addLetterAtIndex(letter, index) {
+    setArray(currentArray => {
+      return [currentArray.slice(0, index), letter, currentArray.slice(index)]
+    })
   }
 
   return (
     <div>
       <button onClick={removeFirstElement}>Remove First Element</button>
       <br />
-      <button onClick={() => removeLetter("A")}>Remove All A's Element</button>
+      <button onClick={() => removeSpecificLetter("B")}>Remove All B's</button>
       <br />
-      <button onClick={() => AddToStart("A")}>Add A To Start</button>
+      <button onClick={() => addLetterToStart("B")}>Add To Start</button>
       <br />
-      <button onClick={() => AddToEnd("Z")}>Add Z To End</button>
+      <button onClick={() => addLetterToEnd("Z")}>Add To End</button>
       <br />
-      <button onClick={() => addAtIndex(2, "C")}>
-        Add C In Third Position
+      <button onClick={clear}>Clear</button>
+      <br />
+      <button onClick={reset}>Reset</button>
+      <br />
+      <button onClick={updateAToH}>Update A To H</button>
+      <br />
+      <button onClick={() => addLetterAtIndex("C", 2)}>Add C At 2</button>
+      <br />
+      <input value={value} onChange={e => setValue(e.target.value)} />
+      <br />
+      <button onClick={() => addLetterToStart(value)}>
+        Add Value To Array
       </button>
-      <br />
-      <input
-        type="text"
-        value={newValue}
-        onChange={e => setNewValue(e.target.value)}
-      />
-      <button onClick={() => AddToStart(newValue)}>Add Input To Start</button>
-      <br />
-      <button onClick={updateAToH}>Change A's To H's</button>
-      <br />
-      <button onClick={() => setArray([])}>Clear</button>
-      <br />
-      <button onClick={() => setArray(INITIAL_STATE)}>Reset</button>
       <br />
       {array.join(", ")}
     </div>
