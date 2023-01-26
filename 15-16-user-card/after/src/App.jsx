@@ -1,26 +1,24 @@
-import user from "./user.json"
 import "./user.css"
-import { UserCardFunction } from "./UserCardFunction"
+import user from "./user.json"
+import { UserCard } from "./UserCard"
 import { UserCardClass } from "./UserCardClass"
 
-function App() {
+export default function App() {
   return (
     <div>
-      <UserCardFunction
+      <UserCard
         name={user.name}
+        phoneNumber={user.phoneNumber}
         age={user.age}
         address={user.address}
-        phoneNumber={user.phoneNumber}
       />
       <br />
       <UserCardClass
         name={user.name}
+        phoneNumber={user.phoneNumber}
         age={user.age}
         address={user.address}
-        phoneNumber={user.phoneNumber}
       />
     </div>
   )
 }
-
-export default App

@@ -1,4 +1,4 @@
-export function UserCardFunction({ name, age, phoneNumber, address }) {
+export function UserCard({ name, age, phoneNumber, address }) {
   return (
     <div className="card">
       <h2 className="name">{name}</h2>
