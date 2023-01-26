@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const INITIAL_STATE = ["1", "2", "3"]
+const INITIAL_STATE = ["A", "B", "C"]
 
 function App() {
   const [array, setArray] = useState(INITIAL_STATE)
