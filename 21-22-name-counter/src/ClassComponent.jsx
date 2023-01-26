@@ -1,11 +1,12 @@
 import React from "react"
 
 export class ClassComponent extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+
     this.state = {
-      age: 0,
       name: "",
+      age: 0,
     }
   }
 
@@ -13,7 +14,6 @@ export class ClassComponent extends React.Component {
     return (
       <div>
         <input
-          type="text"
           value={this.state.name}
           onChange={e => this.setState({ name: e.target.value })}
         />
@@ -21,8 +21,10 @@ export class ClassComponent extends React.Component {
         <br />
         <button
           onClick={() =>
-            this.setState(state => {
-              return { age: state.age - 1 }
+            this.setState(currentState => {
+              return {
+                age: currentState.age - 1,
+              }
             })
           }
         >
@@ -31,8 +33,10 @@ export class ClassComponent extends React.Component {
         {this.state.age}
         <button
           onClick={() =>
-            this.setState(state => {
-              return { age: state.age + 1 }
+            this.setState(currentState => {
+              return {
+                age: currentState.age + 1,
+              }
             })
           }
         >
