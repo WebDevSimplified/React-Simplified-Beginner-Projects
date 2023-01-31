@@ -1,6 +1,6 @@
 import React from "react"
 
-export class ClassComponent extends React.Component {
+export class Child extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -11,6 +11,7 @@ export class ClassComponent extends React.Component {
 
   componentDidMount() {
     console.log("Hi")
+    console.log("Render")
   }
 
   componentDidUpdate(prevProps, prevState) {

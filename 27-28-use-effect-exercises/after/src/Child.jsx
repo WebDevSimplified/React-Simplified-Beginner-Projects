@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export function FunctionComponent() {
+export function Child() {
   const [age, setAge] = useState(0)
   const [name, setName] = useState("")
 
@@ -30,8 +30,6 @@ export function FunctionComponent() {
   useEffect(() => {
     console.log(`My name is ${name} and I am ${age} years old`)
   }, [name, age])
-
-  useEffect(() => {})
 
   return (
     <div>
