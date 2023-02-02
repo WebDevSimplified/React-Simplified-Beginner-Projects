@@ -17,6 +17,15 @@ export class Child extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     console.log("Render")
 
+    if (
+      prevState.name !== this.state.name ||
+      prevState.age !== this.state.age
+    ) {
+      console.log(
+        `My name is ${this.state.name} and I am ${this.state.age} years old`
+      )
+    }
+
     if (prevState.name !== this.state.name) {
       document.title = this.state.name
 
@@ -26,18 +35,10 @@ export class Child extends React.Component {
         console.log(`My name is ${this.state.name}`)
       }, 1000)
     }
-
-    if (
-      prevState.age !== this.state.age ||
-      prevState.name !== this.state.name
-    ) {
-      console.log(
-        `My name is ${this.state.name} and I am ${this.state.age} years old`
-      )
-    }
   }
 
   componentWillUnmount() {
+    if (this.nameTimeout != null) clearTimeout(this.nameTimeout)
     console.log("Bye")
   }
 

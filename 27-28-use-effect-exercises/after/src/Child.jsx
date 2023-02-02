@@ -5,6 +5,10 @@ export function Child() {
   const [name, setName] = useState("")
 
   useEffect(() => {
+    console.log("Re-Render")
+  })
+
+  useEffect(() => {
     console.log("Hi")
 
     return () => {
@@ -13,11 +17,12 @@ export function Child() {
   }, [])
 
   useEffect(() => {
-    console.log("Render")
-  })
+    console.log(`My name is ${name} and I am ${age} years old`)
+  }, [name, age])
 
   useEffect(() => {
     document.title = name
+
     const timeout = setTimeout(() => {
       console.log(`My name is ${name}`)
     }, 1000)
@@ -26,10 +31,6 @@ export function Child() {
       clearTimeout(timeout)
     }
   }, [name])
-
-  useEffect(() => {
-    console.log(`My name is ${name} and I am ${age} years old`)
-  }, [name, age])
 
   return (
     <div>
