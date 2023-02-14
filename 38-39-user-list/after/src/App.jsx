@@ -1,42 +1,38 @@
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 import { User } from "./User"
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true)
   const [users, setUsers] = useState([])
-  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    setLoading(true)
-    // fetch("users.json")
-    fetch("https://jsonplaceholder.typicode.com/users")
+    setIsLoading(true)
+
+    const controller = new AbortController()
+    fetch("https://jsonplaceholder.typicode.com/users", {
+      signal: controller.signal,
+    })
       .then(res => res.json())
       .then(setUsers)
-      .finally(() => setLoading(false))
-  }, [])
+      .finally(() => {
+        setIsLoading(false)
+      })
 
-  // let usersList
-  // if (loading) {
-  //   usersList = <h2>Loading...</h2>
-  // } else {
-  //   usersList = (
-  //     <ul>
-  //       {users.map(user => (
-  //         <User key={user.id} {...user} />
-  //       ))}
-  //     </ul>
-  //   )
-  // }
+    return () => {
+      controller.abort()
+    }
+  }, [])
 
   return (
     <>
       <h1>User List</h1>
-      {loading ? (
+      {isLoading ? (
         <h2>Loading...</h2>
       ) : (
         <ul>
-          {users.map(user => (
-            <User key={user.id} {...user} />
-          ))}
+          {users.map(user => {
+            return <User key={user.id} name={user.name} />
+          })}
         </ul>
       )}
     </>
