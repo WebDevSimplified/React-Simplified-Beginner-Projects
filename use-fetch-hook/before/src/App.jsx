@@ -8,9 +8,11 @@ const URLS = {
 
 // BONUS:
 // const OPTIONS = {
-//   queryParams: {
-//     _limit: 2
-//   }
+//   method: "POST",
+//   body: JSON.stringify({ name: "Kyle" }),
+//   headers: {
+//     "Content-type": "application/json",
+//   },
 // }
 
 function App() {

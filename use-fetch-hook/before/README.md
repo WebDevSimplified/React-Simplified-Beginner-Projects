@@ -1,18 +1,17 @@
 # Before Getting Started
 
-BONUS: Options, abort signal
+The staring code for this project includes all the JSX/logic of using the hook already. The only thing you need to do is implement the `useFetch` hook and import it into the `App.jsx` file. Also, the code for the bonus section of the course is included but just commented out so you can uncomment those lines whenever you tackle the bonus sections.
 
-This 
-
-There are quite a few ways to customize this hook with different defaults, but for this particular use case we will be focusing specifically on fetching JSON data.
+This project should hopefully be fairly easy for you as it is just taking everything we have done with fetch and putting it into a custom hook.
 
 # Instructions
 
-1. Add the ability to add todos with an input and a button which adds the todo when clicked. These todos should show up in a list above the input.
-    * You can use a form for this if you want, but there are some quirks with forms in React that we cover later in the course so it is probably best just to not use a form for now.
-2. Add the ability to mark a todo as complete by clicking on the checkbox or label for the todo.
-3. Add a delete button next to each todo item in the list which will remove the todo when clicked.
+1. Create a custom `useFetch` hook that returns an object with the following data:
+    * `isLoading` - Will be true while the fetch request is loading
+    * `isError` - Will be true if the fetch request failed
+    * `data` - Will contain the data from the fetch request
 
 ## Bonus
 
-1. The easiest way to create this project is to just put all the HTML/data into one single component. This works fine for this project since it is so small, but with larger projects is not ideal. The bonus for this project is to break up your project so that each todo item in the list is rendered as a separate component from your `App.jsx` component.
+1. Add the ability to pass down an `options` object to the `useFetch` hook that will set the options for the fetch request.
+2. Add in the proper cleanup functionality for aborting a request if a new request is triggered before the old one finishes.
