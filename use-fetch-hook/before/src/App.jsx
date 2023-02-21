@@ -1,5 +1,12 @@
 import { useState } from "react"
 
+// If the API does not work use these local URLs
+// const URLS = {
+//   USERS: "users.json",
+//   POSTS: "posts.json",
+//   COMMENTS: "comments.json",
+// }
+
 const URLS = {
   USERS: "https://jsonplaceholder.typicode.com/users",
   POSTS: "https://jsonplaceholder.typicode.com/posts",
