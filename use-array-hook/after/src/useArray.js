@@ -8,15 +8,21 @@ export function useArray(initialValue) {
   }
 
   function replace(index, newElement) {
-    setArray(a => [...a.slice(0, index), newElement, ...a.slice(index + 1)])
+    setArray(a => {
+      return [...a.slice(0, index), newElement, ...a.slice(index + 1)]
+    })
   }
 
   function filter(callback) {
-    setArray(a => a.filter(callback))
+    setArray(a => {
+      return a.filter(callback)
+    })
   }
 
   function remove(index) {
-    setArray(a => [...a.slice(0, index), ...a.slice(index + 1)])
+    setArray(a => {
+      return [...a.slice(0, index), ...a.slice(index + 1)]
+    })
   }
 
   function clear() {
