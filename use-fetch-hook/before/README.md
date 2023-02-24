@@ -1,6 +1,6 @@
 # Before Getting Started
 
-The staring code for this project includes all the JSX/logic of using the hook already. The only thing you need to do is implement the `useFetch` hook and import it into the `App.jsx` file. Also, the code for the bonus section of the course is included but just commented out so you can uncomment those lines whenever you tackle the bonus sections.
+The starting code for this project includes all the JSX/logic of using the hook already. The only thing you need to do is implement the `useFetch` hook and import it into the `App.jsx` file. Also, the code for the bonus section of the course is included but just commented out so you can uncomment those lines whenever you tackle the bonus sections.
 
 If the API used in this video is no longer available or does not work just uncomment the `URLS` object at the top of the file to use the local JSON files in the `public` folder.
 

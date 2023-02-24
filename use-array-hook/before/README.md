@@ -1,6 +1,6 @@
 # Before Getting Started
 
-The staring code for this project includes all the JSX/logic of using the hook already. The only thing you need to do is implement the `useArray` hook and import it into the `App.jsx` file.
+The starting code for this project includes all the JSX/logic of using the hook already. The only thing you need to do is implement the `useArray` hook and import it into the `App.jsx` file.
 
 # Instructions
 
