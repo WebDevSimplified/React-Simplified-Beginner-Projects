@@ -15,7 +15,7 @@ This project is a bit of a complex one (especially the bonus section) since it c
         * Must Be 10 characters or longer
         * Must include a lowercase letter
         * Must include an uppercase letter
-        * Myst include a number
+        * Must include a number
 2. Show error messages next to the inputs every time the form is submitted if there are any. If there are no errors alert the message `Success`.
 3. If you did the first 2 steps using refs, repeat the same thing with state instead. If you used state for the first 2 steps instead repeat the same thing with refs.
 
