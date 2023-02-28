@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import { checkEmail, checkPassword } from "./validators"
 
 export function StateForm() {
@@ -6,8 +6,13 @@ export function StateForm() {
   const [password, setPassword] = useState("")
   const [isAfterFirstSubmit, setIsAfterFirstSubmit] = useState(false)
 
-  const passwordErrors = isAfterFirstSubmit ? checkPassword(password) : []
-  const emailErrors = isAfterFirstSubmit ? checkEmail(email) : []
+  const emailErrors = useMemo(() => {
+    return isAfterFirstSubmit ? checkEmail(email) : []
+  }, [isAfterFirstSubmit, email])
+
+  const passwordErrors = useMemo(() => {
+    return isAfterFirstSubmit ? checkPassword(password) : []
+  }, [isAfterFirstSubmit, password])
 
   function onSubmit(e) {
     e.preventDefault()
@@ -23,37 +28,37 @@ export function StateForm() {
 
   return (
     <form onSubmit={onSubmit} className="form">
-      <div>State Form</div>
-      <div className={`form-group ${emailErrors.length > 0 && "error"}`}>
-        <label htmlFor="email" className="label">
+      <div className={`form-group ${emailErrors.length > 0 ? "error" : ""}`}>
+        <label className="label" htmlFor="email">
           Email
         </label>
         <input
-          value={email}
+          className="input"
           type="email"
           id="email"
-          className="input"
+          value={email}
           onChange={e => setEmail(e.target.value)}
         />
         {emailErrors.length > 0 && (
           <div className="msg">{emailErrors.join(", ")}</div>
         )}
       </div>
-      <div className={`form-group ${passwordErrors.length > 0 && "error"}`}>
-        <label htmlFor="password" className="label">
+      <div className={`form-group ${passwordErrors.length > 0 ? "error" : ""}`}>
+        <label className="label" htmlFor="password">
           Password
         </label>
         <input
+          className="input"
           type="password"
           id="password"
-          className="input"
+          value={password}
           onChange={e => setPassword(e.target.value)}
         />
         {passwordErrors.length > 0 && (
           <div className="msg">{passwordErrors.join(", ")}</div>
         )}
       </div>
-      <button class="btn" type="submit">
+      <button className="btn" type="submit">
         Submit
       </button>
     </form>

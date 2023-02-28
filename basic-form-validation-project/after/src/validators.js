@@ -16,7 +16,7 @@ export function checkPassword(password) {
   const errors = []
 
   if (password.length < 10) {
-    errors.push("Must be at least 10 characters long")
+    errors.push("Must be at least 10 characters")
   }
 
   if (!password.match(/[a-z]/)) {

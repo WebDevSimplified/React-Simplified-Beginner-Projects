@@ -2,21 +2,21 @@ import { useRef, useState } from "react"
 import { checkEmail, checkPassword } from "./validators"
 
 export function RefForm() {
+  const emailRef = useRef()
+  const passwordRef = useRef()
+
   const [emailErrors, setEmailErrors] = useState([])
   const [passwordErrors, setPasswordErrors] = useState([])
   const [isAfterFirstSubmit, setIsAfterFirstSubmit] = useState(false)
-
-  const emailRef = useRef()
-  const passwordRef = useRef()
 
   function onSubmit(e) {
     e.preventDefault()
     setIsAfterFirstSubmit(true)
 
     const emailResults = checkEmail(emailRef.current.value)
-    setEmailErrors(emailResults)
-
     const passwordResults = checkPassword(passwordRef.current.value)
+
+    setEmailErrors(emailResults)
     setPasswordErrors(passwordResults)
 
     if (emailResults.length === 0 && passwordResults.length === 0) {
@@ -26,44 +26,45 @@ export function RefForm() {
 
   return (
     <form onSubmit={onSubmit} className="form">
-      <div>Ref Form</div>
-      <div className={`form-group ${emailErrors.length > 0 && "error"}`}>
-        <label htmlFor="email" className="label">
+      <div className={`form-group ${emailErrors.length > 0 ? "error" : ""}`}>
+        <label className="label" htmlFor="email">
           Email
         </label>
         <input
-          ref={emailRef}
+          onChange={
+            isAfterFirstSubmit
+              ? e => setEmailErrors(checkEmail(e.target.value))
+              : undefined
+          }
+          className="input"
           type="email"
           id="email"
-          className="input"
-          onChange={
-            isAfterFirstSubmit &&
-            (e => setEmailErrors(checkEmail(e.target.value)))
-          }
+          ref={emailRef}
         />
         {emailErrors.length > 0 && (
           <div className="msg">{emailErrors.join(", ")}</div>
         )}
       </div>
-      <div className={`form-group ${passwordErrors.length > 0 && "error"}`}>
-        <label htmlFor="password" className="label">
+      <div className={`form-group ${passwordErrors.length > 0 ? "error" : ""}`}>
+        <label className="label" htmlFor="password">
           Password
         </label>
         <input
-          ref={passwordRef}
+          className="input"
           type="password"
           id="password"
-          className="input"
+          ref={passwordRef}
           onChange={
-            isAfterFirstSubmit &&
-            (e => setPasswordErrors(checkPassword(e.target.value)))
+            isAfterFirstSubmit
+              ? e => setPasswordErrors(checkPassword(e.target.value))
+              : undefined
           }
         />
         {passwordErrors.length > 0 && (
           <div className="msg">{passwordErrors.join(", ")}</div>
         )}
       </div>
-      <button class="btn" type="submit">
+      <button className="btn" type="submit">
         Submit
       </button>
     </form>
