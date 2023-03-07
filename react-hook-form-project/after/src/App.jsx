@@ -71,7 +71,7 @@ function App() {
                 }
               },
               hasNumber: value => {
-                if (!value.match(/[0-8]/)) {
+                if (!value.match(/[0-9]/)) {
                   return "Must include at least 1 number"
                 }
               },
