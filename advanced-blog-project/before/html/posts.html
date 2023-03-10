@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <div class="nav-text-large">My App</div>
+      <ul class="nav-list">
+        <li><a href="/posts">Posts</a></li>
+        <li><a href="/users">Users</a></li>
+        <li><a href="/todos">Todos</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <h1 class="page-title">
+        Posts
+        <div class="title-btns">
+          <a class="btn btn-outline" href="/posts/new">New</a>
+        </div>
+      </h1>
+      <form method="get" action="/posts" class="form mb-4">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="query">Query</label
+            ><input type="search" name="query" id="query" />
+          </div>
+          <div class="form-group">
+            <label for="userId">Author</label
+            ><select type="search" name="userId" id="userId">
+              <option value="">Any</option>
+              <option value="1">Leanne Graham</option>
+              <option value="2">Ervin Howell</option>
+              <option value="3">Clementine Bauch</option>
+              <option value="4">Patricia Lebsack</option>
+              <option value="5">Chelsey Dietrich</option>
+              <option value="6">Mrs. Dennis Schulist</option>
+              <option value="7">Kurtis Weissnat</option>
+              <option value="8">Nicholas Runolfsdottir V</option>
+              <option value="9">Glenna Reichert</option>
+              <option value="10">Clementina DuBuque</option>
+            </select>
+          </div>
+          <button class="btn">Filter</button>
+        </div>
+      </form>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-header">qui est esse</div>
+          <div class="card-body">
+            <div class="card-preview-text">
+              est rerum tempore vitae sequi sint nihil reprehenderit dolor
+              beatae ea dolores neque fugiat blanditiis voluptate porro vel
+              nihil molestiae ut reiciendis qui aperiam non debitis possimus qui
+              neque nisi nulla
+            </div>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="/posts/2">View</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            ea molestias quasi exercitationem repellat qui ipsa sit aut
+          </div>
+          <div class="card-body">
+            <div class="card-preview-text">
+              et iusto sed quo iure voluptatem occaecati omnis eligendi aut ad
+              voluptatem doloribus vel accusantium quis pariatur molestiae porro
+              eius odio et labore et velit aut
+            </div>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="/posts/3">View</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">eum et est occaecati</div>
+          <div class="card-body">
+            <div class="card-preview-text">
+              ullam et saepe reiciendis voluptatem adipisci sit amet autem
+              assumenda provident rerum culpa quis hic commodi nesciunt rem
+              tenetur doloremque ipsam iure quis sunt voluptatem rerum illo
+              velit
+            </div>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="/posts/4">View</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">nesciunt quas odio</div>
+          <div class="card-body">
+            <div class="card-preview-text">
+              repudiandae veniam quaerat sunt sed alias aut fugiat sit autem sed
+              est voluptatem omnis possimus esse voluptatibus quis est aut
+              tenetur dolor neque
+            </div>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="/posts/5">View</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">dolorem eum magni eos aperiam quia</div>
+          <div class="card-body">
+            <div class="card-preview-text">
+              ut aspernatur corporis harum nihil quis provident sequi mollitia
+              nobis aliquid molestiae perspiciatis et ea nemo ab reprehenderit
+              accusantium quas voluptate dolores velit et doloremque molestiae
+            </div>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="/posts/6">View</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">magnam facilis autem</div>
+          <div class="card-body">
+            <div class="card-preview-text">
+              dolore placeat quibusdam ea quo vitae magni quis enim qui quis quo
+              nemo aut saepe quidem repellat excepturi ut quia sunt ut sequi eos
+              ea sed quas
+            </div>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="/posts/7">View</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
