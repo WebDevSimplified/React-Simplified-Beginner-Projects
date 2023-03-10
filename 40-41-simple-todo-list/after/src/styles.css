@@ -38,3 +38,24 @@
 button {
   cursor: pointer;
 }
+
+.edit-form {
+  display: inline;
+}
+
+[data-button-edit] {
+  margin-left: 0.5rem;
+}
+
+.filter-form {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 0.5rem;
+}
+
+.filter-form-group {
+  display: flex;
+  gap: 0.25rem;
+}
