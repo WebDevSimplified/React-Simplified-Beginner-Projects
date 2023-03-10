@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <div class="filter-form">
+      <div class="filter-form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" value="" />
+      </div>
+      <label>
+        <input type="checkbox" />
+        Hide Completed
+      </label>
+    </div>
+    <ul id="list">
+      <li class="list-item">
+        <label class="list-item-label">
+          <input type="checkbox" data-list-item-checkbox />
+          <span data-list-item-text>Item 1</span>
+        </label>
+        <button data-button-edit>Edit</button>
+        <button data-button-delete>Delete</button>
+      </li>
+      <li class="list-item">
+        <label class="list-item-label">
+          <input type="checkbox" data-list-item-checkbox />
+          <span data-list-item-text>Item 2</span>
+        </label>
+        <button data-button-edit>Edit</button>
+        <button data-button-delete>Delete</button>
+      </li>
+      <li class="list-item">
+        <label class="list-item-label">
+          <input type="checkbox" data-list-item-checkbox />
+          <span data-list-item-text>Item 3</span>
+        </label>
+        <button data-button-edit>Edit</button>
+        <button data-button-delete>Delete</button>
+      </li>
+    </ul>
+    <form id="new-todo-form">
+      <label for="todo-input">New Todo</label>
+      <input type="text" id="todo-input" />
+      <button>Add Todo</button>
+    </form>
+  </body>
+</html>

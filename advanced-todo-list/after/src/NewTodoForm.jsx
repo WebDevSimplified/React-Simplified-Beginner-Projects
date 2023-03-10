@@ -2,17 +2,15 @@ import { useContext, useRef } from "react"
 import { TodoContext } from "./App"
 
 export function NewTodoForm() {
-  const { addNewTodo } = useContext(TodoContext)
-
   const nameRef = useRef()
+  const { addNewTodo } = useContext(TodoContext)
 
   function handleSubmit(e) {
     e.preventDefault()
+    if (nameRef.current.value === "") return
 
-    const name = nameRef.current.value
-    if (name === "") return
+    addNewTodo(nameRef.current.value)
 
-    addNewTodo(name)
     nameRef.current.value = ""
   }
 

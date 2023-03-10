@@ -1,8 +1,8 @@
 export function TodoFilterForm({
-  hideCompleted,
-  setHideCompleted,
   name,
   setName,
+  hideCompleted,
+  setHideCompleted,
 }) {
   return (
     <div className="filter-form">

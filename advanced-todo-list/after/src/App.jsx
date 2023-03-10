@@ -4,11 +4,12 @@ import "./styles.css"
 import { TodoFilterForm } from "./TodoFilterForm"
 import { TodoList } from "./TodoList"
 
+const LOCAL_STORAGE_KEY = "TODOS"
 const ACTIONS = {
   ADD: "ADD",
+  UPDATE: "UPDATE",
   TOGGLE: "TOGGLE",
   DELETE: "DELETE",
-  UPDATE: "UPDATE",
 }
 
 function reducer(todos, { type, payload }) {
@@ -20,8 +21,9 @@ function reducer(todos, { type, payload }) {
       ]
     case ACTIONS.TOGGLE:
       return todos.map(todo => {
-        if (todo.id === payload.id)
+        if (todo.id === payload.id) {
           return { ...todo, completed: payload.completed }
+        }
 
         return todo
       })
@@ -29,14 +31,16 @@ function reducer(todos, { type, payload }) {
       return todos.filter(todo => todo.id !== payload.id)
     case ACTIONS.UPDATE:
       return todos.map(todo => {
-        if (todo.id === payload.id) return { ...todo, name: payload.name }
+        if (todo.id === payload.id) {
+          return { ...todo, name: payload.name }
+        }
 
         return todo
       })
+    default:
+      throw new Error(`No action found for ${type}.`)
   }
 }
-
-const LOCAL_STORAGE_KEY = "TODOS"
 
 export const TodoContext = createContext()
 
@@ -63,16 +67,16 @@ function App() {
     dispatch({ type: ACTIONS.ADD, payload: { name } })
   }
 
-  function toggleTodo(id, completed) {
-    dispatch({ type: ACTIONS.TOGGLE, payload: { id, completed } })
-  }
-
-  function deleteTodo(id) {
-    dispatch({ type: ACTIONS.DELETE, payload: { id } })
+  function toggleTodo(todoId, completed) {
+    dispatch({ type: ACTIONS.TOGGLE, payload: { id: todoId, completed } })
   }
 
   function updateTodoName(id, name) {
     dispatch({ type: ACTIONS.UPDATE, payload: { id, name } })
+  }
+
+  function deleteTodo(todoId) {
+    dispatch({ type: ACTIONS.DELETE, payload: { id: todoId } })
   }
 
   return (
@@ -81,8 +85,8 @@ function App() {
         todos: filteredTodos,
         addNewTodo,
         toggleTodo,
-        deleteTodo,
         updateTodoName,
+        deleteTodo,
       }}
     >
       <TodoFilterForm
