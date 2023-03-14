@@ -7,7 +7,6 @@ import {
 
 export function RootLayout() {
   const { state } = useNavigation()
-
   const isLoading = state === "loading"
 
   return (

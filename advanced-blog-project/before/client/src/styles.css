@@ -218,7 +218,10 @@ body {
 .form-row {
   display: flex;
   gap: 1rem;
-  align-items: flex-end;
+}
+
+.form-row .btn {
+  align-self: flex-end;
 }
 
 .form-group {

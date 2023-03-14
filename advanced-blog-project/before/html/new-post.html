@@ -18,9 +18,10 @@
       <h1 class="page-title">New Post</h1>
       <form method="post" action="/posts/new" class="form">
         <div class="form-row">
-          <div class="form-group">
+          <div class="form-group error">
             <label for="title">Title</label>
             <input type="text" name="title" id="title" />
+            <div class="error-message">Required</div>
           </div>
           <div class="form-group">
             <label for="userId">Author</label

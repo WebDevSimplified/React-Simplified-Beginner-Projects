@@ -9,7 +9,7 @@ function UserList() {
       <h1 className="page-title">Users</h1>
       <div className="card-grid">
         {users.map(user => (
-          <div className="card" key={user.id}>
+          <div key={user.id} className="card">
             <div className="card-header">{user.name}</div>
             <div className="card-body">
               <div>{user.company.name}</div>

@@ -1,4 +1,4 @@
-export function FormGroup({ errorMessage, children }) {
+export function FormGroup({ children, errorMessage }) {
   return (
     <div className={`form-group ${errorMessage != null ? "error" : ""}`}>
       {children}

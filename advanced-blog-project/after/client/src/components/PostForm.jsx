@@ -1,26 +1,27 @@
 import { Form, Link } from "react-router-dom"
-import { FormGroup } from "../components/FormGroup"
+import { FormGroup } from "./FormGroup"
 
-export function PostForm({ users, errors, defaultValues, isSubmitting }) {
+export function PostForm({
+  users,
+  isSubmitting,
+  errors = {},
+  defaultValues = {},
+}) {
   return (
-    <Form className="form" method="post">
+    <Form method="post" className="form">
       <div className="form-row">
-        <FormGroup errorMessage={errors?.title}>
+        <FormGroup errorMessage={errors.title}>
           <label htmlFor="title">Title</label>
           <input
             type="text"
             name="title"
             id="title"
-            defaultValue={defaultValues?.title}
+            defaultValue={defaultValues.title}
           />
         </FormGroup>
-        <FormGroup errorMessage={errors?.userId}>
+        <FormGroup errorMessage={errors.userId}>
           <label htmlFor="userId">Author</label>
-          <select
-            name="userId"
-            id="userId"
-            defaultValue={defaultValues?.userId}
-          >
+          <select name="userId" id="userId" defaultValue={defaultValues.userId}>
             {users.map(user => (
               <option key={user.id} value={user.id}>
                 {user.name}
@@ -30,17 +31,21 @@ export function PostForm({ users, errors, defaultValues, isSubmitting }) {
         </FormGroup>
       </div>
       <div className="form-row">
-        <FormGroup errorMessage={errors?.body}>
+        <FormGroup errorMessage={errors.body}>
           <label htmlFor="body">Body</label>
-          <textarea name="body" id="body" defaultValue={defaultValues?.body} />
+          <textarea
+            name="body"
+            id="body"
+            defaultValue={defaultValues.body}
+          ></textarea>
         </FormGroup>
       </div>
       <div className="form-row form-btn-row">
-        <Link to=".." className="btn btn-outline">
+        <Link className="btn btn-outline" to="..">
           Cancel
         </Link>
-        <button className="btn" disabled={isSubmitting}>
-          {isSubmitting ? "Saving..." : "Save"}
+        <button disabled={isSubmitting} className="btn">
+          {isSubmitting ? "Saving" : "Save"}
         </button>
       </div>
     </Form>
@@ -54,12 +59,12 @@ export function postFormValidator({ title, body, userId }) {
     errors.title = "Required"
   }
 
-  if (userId === "") {
-    errors.userId = "Required"
-  }
-
   if (body === "") {
     errors.body = "Required"
+  }
+
+  if (userId === "") {
+    errors.userId = "Required"
   }
 
   return errors
