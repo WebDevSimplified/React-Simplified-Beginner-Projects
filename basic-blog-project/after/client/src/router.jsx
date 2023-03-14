@@ -18,7 +18,10 @@ export const router = createBrowserRouter([
           {
             path: "posts",
             children: [
-              { index: true, ...postListRoute },
+              {
+                index: true,
+                ...postListRoute,
+              },
               { path: ":postId", ...postRoute },
             ],
           },
@@ -29,15 +32,9 @@ export const router = createBrowserRouter([
               { path: ":userId", ...userRoute },
             ],
           },
-          {
-            path: "todos",
-            children: [{ index: true, ...todoListRoute }],
-          },
+          { path: "todos", ...todoListRoute },
+          { path: "*", element: <h1>404 - Page Not Found</h1> },
         ],
-      },
-      {
-        path: "*",
-        element: <h1>404 - Page Not Found</h1>,
       },
     ],
   },
