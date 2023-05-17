@@ -49,7 +49,11 @@ function App() {
 
   function addLetterAtIndex(letter, index) {
     setArray(currentArray => {
-      return [currentArray.slice(0, index), letter, currentArray.slice(index)]
+      return [
+        ...currentArray.slice(0, index),
+        letter,
+        ...currentArray.slice(index),
+      ]
     })
   }
 

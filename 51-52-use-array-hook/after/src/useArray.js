@@ -1,37 +1,37 @@
-import { useState } from "react"
+import { useState, useCallback } from "react"
 
 export function useArray(initialValue) {
   const [array, setArray] = useState(initialValue)
 
-  function push(element) {
+  const push = useCallback(element => {
     setArray(a => [...a, element])
-  }
+  }, [])
 
-  function replace(index, newElement) {
+  const replace = useCallback((index, newElement) => {
     setArray(a => {
       return [...a.slice(0, index), newElement, ...a.slice(index + 1)]
     })
-  }
+  }, [])
 
-  function filter(callback) {
+  const filter = useCallback(callback => {
     setArray(a => {
       return a.filter(callback)
     })
-  }
+  }, [])
 
-  function remove(index) {
+  const remove = useCallback(index => {
     setArray(a => {
       return [...a.slice(0, index), ...a.slice(index + 1)]
     })
-  }
+  }, [])
 
-  function clear() {
+  const clear = useCallback(() => {
     setArray([])
-  }
+  }, [])
 
-  function reset() {
+  const reset = useCallback(() => {
     setArray(initialValue)
-  }
+  }, [initialValue])
 
   return { array, set: setArray, push, replace, filter, remove, clear, reset }
 }

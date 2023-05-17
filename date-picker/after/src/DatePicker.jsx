@@ -10,7 +10,7 @@ import {
   startOfMonth,
   startOfWeek,
 } from "date-fns"
-import { useMemo, useState } from "react"
+import { useState } from "react"
 import classnames from "classnames"
 
 export function DatePicker({ value, onChange }) {
