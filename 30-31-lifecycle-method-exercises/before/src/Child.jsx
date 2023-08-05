@@ -9,6 +9,13 @@ export class Child extends React.Component {
     }
   }
 
+  componentDidMount(){
+    console.log('Hi');
+    console.log('Render');
+  }
+
+  
+
   render() {
     return (
       <div>
