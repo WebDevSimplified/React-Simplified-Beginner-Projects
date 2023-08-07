@@ -1,9 +1,38 @@
-const INITIAL_ARRAY = [1, 2, 3]
+import { useState } from "react";
+const INITIAL_ARRAY = [1, 2, 3];
 // const INITIAL_ARRAY = () => [1, 2, 3]
+
+function useArray(arr) {
+  const [array, set] = useState(arr);
+  const push = (e) => set((prev) => [...prev, e]);
+  const replace = (i, e) => {
+    return set((prev) => {
+      return prev
+        .slice(0, i)
+        .concat([e])
+        .concat(prev.slice(i + 1));
+    });
+  };
+  const filter = (func) => set((prev) => prev.filter(func));
+  const remove = (i) =>
+    set((prev) => prev.slice(0, i).concat(prev.slice(i + 1)));
+  const clear = () => set([]);
+  const reset = () => set(arr);
+  return {
+    array,
+    set,
+    push,
+    replace,
+    filter,
+    remove,
+    clear,
+    reset,
+  };
+}
 
 function App() {
   const { array, set, push, replace, filter, remove, clear, reset } =
-    useArray(INITIAL_ARRAY)
+    useArray(INITIAL_ARRAY);
 
   return (
     <>
@@ -22,7 +51,7 @@ function App() {
         <button onClick={() => replace(1, 9)}>
           Replace the second element with 9
         </button>
-        <button onClick={() => filter(n => n < 3)}>
+        <button onClick={() => filter((n) => n < 3)}>
           Keep numbers less than 3
         </button>
         <button onClick={() => remove(1)}>Remove second element</button>
@@ -30,7 +59,7 @@ function App() {
         <button onClick={reset}>Reset</button>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
