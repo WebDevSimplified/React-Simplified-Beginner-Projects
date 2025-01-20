@@ -14,10 +14,18 @@ const URLS = {
   COMMENTS: "https://jsonplaceholder.typicode.com/comments",
 }
 
+const OPTIONS = {
+  method: "POST",
+  body: JSON.stringify({ name: "Kyle" }),
+  headers: {
+    "Content-type": "application/json",
+  },
+}
+
 function App() {
   const [url, setUrl] = useState(URLS.USERS)
 
-  const { data, isLoading, isError } = useFetch(url)
+  const { data, error, status } = useFetch(url, OPTIONS)
 
   return (
     <>
@@ -47,13 +55,14 @@ function App() {
           Comments
         </label>
       </div>
-      {isLoading ? (
-        <h1>Loading...</h1>
-      ) : isError ? (
-        <h1>Error</h1>
-      ) : (
-        <pre>{JSON.stringify(data, null, 2)}</pre>
+      {status === "loading" && <h1>Loading...</h1>}
+      {status === "error" && (
+        <>
+          <h1>Error</h1>
+          <p>{error.message}</p>
+        </>
       )}
+      {status === "fetched" && <pre>{JSON.stringify(data, null, 2)}</pre>}
     </>
   )
 }

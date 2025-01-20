@@ -9,12 +9,12 @@ This project should hopefully be fairly easy for you as it is just taking everyt
 # Instructions
 
 1. Create a custom `useFetch` hook that returns an object with the following data:
-    * `isLoading` - Will be true while the fetch request is loading
-    * `isError` - Will be true if the fetch request failed
-    * `data` - Will contain the data from the fetch request
+   - `status` - Will be "idle" when the request is not running, "loading" while it is fetching, "error" if the fetch request fails, and "fetched" if the fetch request is successful
+   - `error` - Will contain the error object if there is an error
+   - `data` - Will contain the data from the fetch request
 
 ## Bonus
 
 1. Add the ability to pass down an `options` object to the `useFetch` hook that will set the options for the fetch request.
-    * If you are using the local files instead of the API you will not see any difference in the output when passing these custom options just because of the limitations of not actually calling an API on a server.
+   - If you are using the local files instead of the API you will not see any difference in the output when passing these custom options just because of the limitations of not actually calling an API on a server.
 2. Add in the proper cleanup functionality for aborting a request if a new request is triggered before the old one finishes.
