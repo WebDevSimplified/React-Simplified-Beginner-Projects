@@ -1,9 +1,4 @@
-import {
-  Link,
-  Outlet,
-  ScrollRestoration,
-  useNavigation,
-} from "react-router-dom"
+import { Link, Outlet, ScrollRestoration, useNavigation } from "react-router"
 
 export function RootLayout() {
   const { state } = useNavigation()

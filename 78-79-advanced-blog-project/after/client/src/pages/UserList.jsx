@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom"
+import { Link, useLoaderData } from "react-router"
 import { getUsers } from "../api/users"
 
 function UserList() {

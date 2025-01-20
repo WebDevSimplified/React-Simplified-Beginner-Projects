@@ -1,4 +1,4 @@
-import { Form, Link } from "react-router-dom"
+import { Form, Link } from "react-router"
 import { FormGroup } from "./FormGroup"
 
 export function PostForm({

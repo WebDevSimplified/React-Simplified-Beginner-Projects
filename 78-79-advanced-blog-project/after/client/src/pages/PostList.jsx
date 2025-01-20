@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react"
-import { Form, Link, useLoaderData } from "react-router-dom"
+import { Form, Link, useLoaderData } from "react-router"
 import { getPosts } from "../api/posts"
 import { getUsers } from "../api/users"
 import { FormGroup } from "../components/FormGroup"

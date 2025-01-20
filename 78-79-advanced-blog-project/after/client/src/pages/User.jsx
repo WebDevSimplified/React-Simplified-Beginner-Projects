@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData } from "react-router"
 import { getPosts } from "../api/posts"
 import { getTodos } from "../api/todos"
 import { getUser } from "../api/users"

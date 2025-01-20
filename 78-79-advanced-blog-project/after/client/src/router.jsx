@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate, useRouteError } from "react-router-dom"
+import { createBrowserRouter, Navigate, useRouteError } from "react-router"
 import { RootLayout } from "./layouts/RootLayout"
 import { editPostRoute } from "./pages/EditPost"
 import { newPostRoute } from "./pages/NewPost"
