@@ -296,39 +296,3 @@ body {
   color: hsl(0, 100%, 50%);
   font-size: 1rem;
 }
-
-.skeleton {
-  background: hsl(200, 20%, 90%);
-  border-radius: 0.5rem;
-  height: 1em;
-  width: 100%;
-  animation: skeleton 1s infinite alternate ease-in-out;
-}
-
-.skeleton + .skeleton:last-child {
-  width: 75%;
-}
-
-.skeleton + .skeleton {
-  margin-top: 0.5rem;
-  width: 100%;
-}
-
-.skeleton-btn {
-  height: 2em;
-  width: 4em;
-}
-
-.skeleton-input {
-  height: 2.25em;
-  border: 2px solid black;
-}
-
-@keyframes skeleton {
-  from {
-    opacity: 0.5;
-  }
-  to {
-    opacity: 1;
-  }
-}
