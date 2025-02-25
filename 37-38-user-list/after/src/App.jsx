@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import { User } from "./User"
 
-function App() {
-  const [status, setStatus] = useState("idle")
-  const [error, setError] = useState(null)
+export default function App() {
   const [users, setUsers] = useState([])
+  const [error, setError] = useState(null)
+  const [status, setStatus] = useState("idle")
 
   useEffect(() => {
     setStatus("loading")
@@ -19,10 +19,10 @@ function App() {
         if (res.ok) return res.json()
         throw new Error(`Status code: ${res.status}`)
       })
-      .then(users => {
-        setUsers(users)
-        setError(null)
+      .then(data => {
+        setUsers(data)
         setStatus("fetched")
+        setError(null)
       })
       .catch(err => {
         if (err.name === "AbortError") return
@@ -48,13 +48,11 @@ function App() {
       )}
       {status === "fetched" && (
         <ul>
-          {users.map(user => {
-            return <User key={user.id} name={user.name} />
-          })}
+          {users.map(user => (
+            <User key={user.id} name={user.name} />
+          ))}
         </ul>
       )}
     </>
   )
 }
-
-export default App
