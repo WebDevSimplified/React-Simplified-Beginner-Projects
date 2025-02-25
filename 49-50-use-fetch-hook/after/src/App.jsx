@@ -14,6 +14,7 @@ const URLS = {
   COMMENTS: "https://jsonplaceholder.typicode.com/comments",
 }
 
+// BONUS:
 const OPTIONS = {
   method: "POST",
   body: JSON.stringify({ name: "Kyle" }),
@@ -25,6 +26,8 @@ const OPTIONS = {
 function App() {
   const [url, setUrl] = useState(URLS.USERS)
 
+  // const { data, error, status } = useFetch(url)
+  // BONUS:
   const { data, error, status } = useFetch(url, OPTIONS)
 
   return (

@@ -1,23 +1,17 @@
-import { useEffect, useRef, useState } from "react"
+import { useState, useEffect } from "react"
 
 export function useFetch(url, options = {}) {
   const [data, setData] = useState(null)
-  const [error, setError] = useState(false)
+  const [error, setError] = useState(null)
   const [status, setStatus] = useState("idle")
 
-  // FIXME: Can do either ref or memoize it in parent/declare outside the component
-  const optionsRef = useRef(options)
   useEffect(() => {
-    optionsRef.current = options
-  }, [options])
-
-  useEffect(() => {
-    setStatus("loading")
     setData(null)
     setError(null)
+    setStatus("loading")
 
     const controller = new AbortController()
-    fetch(url, { signal: controller.signal, ...optionsRef.current })
+    fetch(url, { signal: controller.signal, ...options })
       .then(res => {
         if (res.ok) return res.json()
         throw new Error(`Status code: ${res.status}`)
@@ -29,15 +23,15 @@ export function useFetch(url, options = {}) {
       })
       .catch(err => {
         if (err.name === "AbortError") return
-        setError(err)
         setData(null)
+        setError(err)
         setStatus("error")
       })
 
     return () => {
       controller.abort()
     }
-  }, [url])
+  }, [url, options])
 
-  return { data, error, status }
+  return { data, status, error }
 }
