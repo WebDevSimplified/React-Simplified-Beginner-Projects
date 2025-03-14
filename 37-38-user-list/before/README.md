@@ -6,7 +6,6 @@ If you want you can open the `app.html` file in your browser to see what the fin
 
 If the API we use in this video is unavailable, or different in anyway to what I show in the video you can use the `users.json` file as an alternative to the API. If you place the `users.json` file in the `public` folder of your project you can fetch it by running `fetch("users.json")` in your code.
 
-
 # Instructions
 
 1. Fetch all users from the API (https://jsonplaceholder.typicode.com/users) in your App.jsx file using `useEffect`.
@@ -16,4 +15,6 @@ If the API we use in this video is unavailable, or different in anyway to what I
 ## Bonus
 
 1. Add a loading state that will display the text `Loading...` instead of the user list while it is being downloaded from the API.
-    * You can use your dev tools to throttle your network speed to more easily test the loading. Go to the **Network** tab, click the **No Throttling** drop down and choose **Slow 3G**. 
+   - You can use your dev tools to throttle your network speed to more easily test the loading. Go to the **Network** tab, click the **No Throttling** drop down and choose **Slow 3G**.
+2. Add an error state that will display the text `Error fetching users` and the error message if the API request fails.
+   - You can test this by changing the URL in the `fetch` call to a URL that is not valid (such as https://jsonplaceholder.typicode.com/users-invalid).

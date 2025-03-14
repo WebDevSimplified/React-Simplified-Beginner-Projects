@@ -3,7 +3,7 @@ import {
   useActionData,
   useLoaderData,
   useNavigation,
-} from "react-router-dom"
+} from "react-router"
 import { createPost } from "../api/posts"
 import { getUsers } from "../api/users"
 import { PostForm, postFormValidator } from "../components/PostForm"

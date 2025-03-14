@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom"
+import { Link, useLoaderData } from "react-router"
 import { getComments } from "../api/comments"
 import { getPost } from "../api/posts"
 import { getUser } from "../api/users"
